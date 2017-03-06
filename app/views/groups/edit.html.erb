@@ -2,6 +2,15 @@
   <h2>编辑讨论版</h2>
   <hr>
   <%= form_for @group do |f| %>
+  <% if @group.errors.any? %>
+     <% @group.errors.full_messages.each do |msg| %>
+     <ul>
+       <li>
+         <%= msg %>
+       </li>
+     </ul>
+     <% end %>
+  <% end %>
   标题
   <%= f.text_field :title%>
   <br>
