@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
-  
+
   end
 
   def new
@@ -23,6 +23,9 @@ class GroupsController < ApplicationController
   end
 
   def update
+    @group = Group.find(params[:id])
+    @group.update(group_params)
+    redirect_to groups_path,  notice: "update Success"
   end
 
   def destroy
