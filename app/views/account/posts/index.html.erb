@@ -1,0 +1,25 @@
+<div class="col-md-12">
+  <table class="table">
+    <thead>
+      <thead>
+        <th> # </th>
+        <th> Content </th>
+        <th> Group Name </th>
+        <th> Last Update </th>
+        <th colspan="2"></th>
+      </thead>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr>
+        <td>#</td>
+        <td><%= post.content %></td>
+        <td><%= post.group.title %></td>
+        <td><%= post.updated_at %></td>
+        <td><%= link_to("Edit", edit_group_post_path(post.group, post), class: "btn btn-default btn-xs") %></td>
+        <td><%= link_to("Delete", group_post_path(post.group, post), method: :delete, data: { confirm: "Are you sure?"},class: "btn btn-default btn-xs") %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

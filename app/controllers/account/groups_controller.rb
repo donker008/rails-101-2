@@ -8,4 +8,13 @@ class Account::GroupsController < ApplicationController
       redirect_to groups_path
     end
   end
+
+  def edit
+    
+  end
+
+  def destroy
+
+  end
+
 end
