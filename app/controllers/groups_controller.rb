@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @posts = @group.posts
   end
 
   def edit
@@ -31,7 +32,7 @@ class GroupsController < ApplicationController
   def update
 
     if @group.update(group_params)
-      redirect_to groups_path,  notice: "update Success"
+      redirect_to group_path(@group),  notice: "update Success"
     else
       render :edit
     end
