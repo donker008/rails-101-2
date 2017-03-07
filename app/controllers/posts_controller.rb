@@ -2,12 +2,13 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :destory]
 
   def index
-    @posts = Post.all
+    @group = Group.find(params[:group_id])
+    @posts = @group.posts.recent.paginate(:page => params[:page], :per_page => 5 )
   end
 
   def show
     @group = Group.find(params[:group_id])
-    @posts = @group.posts.order("created_at DESC")
+    @posts = @group.posts.recent.paginate(:page => params[:page], :per_page => 5 )
   end
 
   def new
