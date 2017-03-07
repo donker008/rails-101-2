@@ -1,0 +1,21 @@
+<div class="col-md-4 col-md-offset-4">
+  <table class="table">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>Content</td>
+        <td>Creator</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr>
+        <td>#</td>
+        <td><%= post.content %></td>
+        <td><%= post.user.email %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
