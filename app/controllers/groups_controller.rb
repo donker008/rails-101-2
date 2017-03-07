@@ -29,6 +29,21 @@ class GroupsController < ApplicationController
     redirect_to group_path(@group)
   end
 
+  def mygroups
+    if current_user
+      @groups = current_user.groups
+    else
+      redirect_to groups_path
+    end
+  end
+
+  def mygroups
+    if current_user
+      @posts = current_user.posts
+    else
+      redirect_to groups_path
+    end
+  end
 
   def show
     @group = Group.find(params[:id])
